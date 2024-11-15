@@ -72,6 +72,24 @@
     .detailItem {
       padding: 5px 0;
     }
+    
+    .backButton {
+      margin-top: 20px;
+      background-color: #493628;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .backButton:hover {
+      background-color: #3C2F23;
+      color: white;
+    }
   </style>
 </head>
 
@@ -87,6 +105,7 @@
         </div>
         <div id="cardType" class="rounded-5 card py-2 px-4 mx-auto cardType text-uppercase mt-2"></div>
         <div id="cardDetails" class="mt-4"></div>
+        <button class="backButton" onclick="window.location.href='index.html'">Back</button>
       </div>
     </div>
   </div>
