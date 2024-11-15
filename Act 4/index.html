@@ -25,6 +25,7 @@
       border-radius: 8px;
       margin-top: 30px;
     }
+
     .backButton {
       margin-top: 20px;
       background-color: #493628;
@@ -34,6 +35,13 @@
     .backButton:hover {
       background-color: #3C2F23;
       color: white;
+    }
+
+    .card-container {
+      padding: 15px;
+      border-radius: 10px;
+      color: black;
+      border: 2px solid #493628;
     }
   </style>
 </head>
@@ -69,6 +77,20 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <script>
+    const colors = {
+      "Normal Monster": "#CFCFC4",
+      "Effect Monster": "#F9C6A0",
+      "Spell Card": "#A0D6F9",
+      "Trap Card": "#FAF1A0",
+      "Fusion Monster": "#A8DDA0",
+      "Ritual Monster": "#B2E3E5",
+      "Synchro Monster": "#E1A09B",
+      "XYZ Monster": "#D0A0D5",
+      "Link Monster": "#E6D3B8",
+      "Pendulum Monster": "#C6D5EF",
+      "default": "#D3D5D6"
+    };
+
     const perPageCount = 12;
     let page = 1;
     const ygoContainer = document.getElementById('ygoContainer');
@@ -97,9 +119,12 @@
     function displayCards(cards) {
       ygoContainer.innerHTML = cards.map(card => {
         const cardParam = encodeURIComponent(JSON.stringify(card));
+        const type = card.type;
+        const backgroundColor = colors[type] || colors["default"];
+
         return `
-         <div class="col-md-4 mb-4">
-            <div class="card h-100" onclick="window.location.href='view.html?card=${cardParam}'" style="cursor: pointer;">
+          <div class="col-md-4 mb-4">
+            <div class="card-container h-100" style="background-color: ${backgroundColor}; cursor: pointer;" onclick="window.location.href='view.html?card=${cardParam}'">
               <img src="${card.card_images[0].image_url}" class="card-img-top" alt="${card.name}">
               <div class="card-body">
                 <h5 class="card-title">${card.name}</h5>
