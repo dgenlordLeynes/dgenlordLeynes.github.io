@@ -11,24 +11,66 @@
     body {
       background-image: url(https://i.pinimg.com/originals/58/34/44/5834444a1715e55da552edc1d346ecbd.gif);
       background-size: cover;
+      background-attachment: fixed;
+      padding-top: 50px;
     }
+
     .cardContainer {
-      background-color: lightgray;
+      background-color: rgba(255, 255, 255, 0.9);
       border-radius: 15px;
       padding: 20px;
+      max-width: 500px;
+      margin: 30px auto;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
     }
 
     .cardImageContainer {
       background-color: #f8f9fa;
       border-radius: 15px;
-      width: 100%;
-      max-width: 400px;
-      margin: auto;
+      margin-bottom: 20px;
+      overflow: hidden;
+      max-width: 40%;
     }
 
     .cardImageContainer img {
       width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .typePill {
+      font-size: 1rem;
+      padding: 5px 10px;
       border-radius: 15px;
+      color: white;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .cardDetailsContainer {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+
+    .cardTitleContainer {
+      background-color: black;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+      opacity: 75%;
+    }
+
+    .detailItem {
+      padding: 5px 0;
     }
   </style>
 </head>
@@ -37,11 +79,13 @@
   <div class="container mt-5">
     <div class="row">
       <div class="col text-center">
-        <div class="cardImageContainer mb-4" id="cardImageContainer">
+        <div class="cardImageContainer mb-4 mx-auto" id="cardImageContainer">
           <img id="cardImage" alt="Card Image">
         </div>
-        <h1 id="cardTitle" class="display-4"></h1>
-        <div id="cardType" class="badge bg-primary text-uppercase mt-2"></div>
+        <div id="cardTitleContainer" class="cardTitleContainer">
+          <h1 id="cardTitle" class="display-4"></h1>
+        </div>
+        <div id="cardType" class="rounded-5 card py-2 px-4 mx-auto cardType text-uppercase mt-2"></div>
         <div id="cardDetails" class="mt-4"></div>
       </div>
     </div>
@@ -51,6 +95,20 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <script>
+    const colors = {
+      "Normal Monster": "#CFCFC4",
+      "Effect Monster": "#F9C6A0",
+      "Spell Card": "#A0D6F9",
+      "Trap Card": "#FAF1A0",
+      "Fusion Monster": "#A8DDA0",
+      "Ritual Monster": "#B2E3E5",
+      "Synchro Monster": "#E1A09B",
+      "XYZ Monster": "#D0A0D5",
+      "Link Monster": "#E6D3B8",
+      "Pendulum Monster": "#C6D5EF",
+      "default": "#D3D5D6"
+    };
+
     function loadCardData() {
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.has("card")) {
@@ -65,16 +123,35 @@
     function displayCardDetails(card) {
       document.getElementById("cardImage").src = card.card_images[0].image_url;
       document.getElementById("cardTitle").textContent = card.name;
-      document.getElementById("cardType").textContent = card.type;
+
+      const typeColor = colors[card.type] || colors["default"];
+      const typePill = document.getElementById("cardType");
+      typePill.style.backgroundColor = typeColor;
+      typePill.textContent = card.type;
+
+      let cardDetailsHTML = '';
+
+      if (card.type) {
+        cardDetailsHTML += `<div class="detailItem"><strong>Type:</strong> ${card.type}</div>`;
+      }
+      if (card.attribute) {
+        cardDetailsHTML += `<div class="detailItem"><strong>Attribute:</strong> ${card.attribute}</div>`;
+      }
+      if (card.level) {
+        cardDetailsHTML += `<div class="detailItem"><strong>Level/Rank:</strong> ${card.level}</div>`;
+      }
+      if (card.atk !== undefined) {
+        cardDetailsHTML += `<div class="detailItem"><strong>Attack:</strong> ${card.atk}</div>`;
+      }
+      if (card.def !== undefined) {
+        cardDetailsHTML += `<div class="detailItem"><strong>Defense:</strong> ${card.def}</div>`;
+      }
+      cardDetailsHTML += `<div class="detailItem"><strong>Description:</strong> ${card.desc || 'No description available'}</div>`;
 
       document.getElementById("cardDetails").innerHTML = `
-      <p><strong>Type:</strong> ${card.type}</p>
-        <p><strong>Attribute:</strong> ${card.attribute ? card.attribute : 'N/A'}</p>
-        <p><strong>Level/Rank:</strong> ${card.level ? card.level : 'N/A'}</p>
-        <p><strong>Attack:</strong> ${card.atk !== undefined ? card.atk : 'N/A'}</p>
-        <p><strong>Defense:</strong> ${card.def !== undefined ? card.def : 'N/A'}</p>
-        <p><strong>Description:</strong> ${card.desc}</p>
-      `;
+  <div class="cardDetailsContainer">
+    ${cardDetailsHTML}
+  </div> `;
     }
 
     loadCardData();
