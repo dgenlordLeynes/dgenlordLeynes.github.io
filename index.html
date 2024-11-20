@@ -52,17 +52,63 @@
     }
 
     .cardContainer {
-      background-color: rgba(255, 255, 255, 0.8);
-      border-radius: 15px;
-      padding: 30px;
-      margin-top: 30px;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    }
+  background-color: #f8f9fa; /* Light gray background for contrast */
+  padding: 2rem;
+  border-radius: 1rem;
+}
 
-    .card-img-top {
-      height: 300px;
-      object-fit: contain;
-    }
+.card-title {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.8rem;
+  color: #343a40;
+}
+
+.card-text {
+  font-size: 1.1rem;
+  color: #6c757d;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+#about-me {
+  background-color: #f8f9fa; /* Light gray background for separation */
+}
+
+#about-me h2 {
+  font-family: 'Arial', sans-serif;
+  color: #343a40;
+}
+
+#about-me p {
+  font-size: 1.1rem;
+  color: #6c757d;
+}
+
+#about-me .btn-primary {
+  background-color: #007bff;
+  border: none;
+  font-weight: bold;
+}
+
+#about-me .btn-primary:hover {
+  background-color: #0056b3;
+}
+
+#about-me img {
+  max-width: 200px;
+  border-radius: 50%;
+  border: 3px solid #007bff;
+}
+
   </style>
 </head>
 
@@ -73,15 +119,47 @@
         <div class="titlePF display-3 text-center">Leynes Portfolio</div>
       </div>
     </div>
-    <div class="row mt-5">
-      <div class="col">
-        <div class="card cardContainer">
-          <h2>Introduction</h2>
-          <img src="../img/introduction pic.png" class="card-img-top" alt="Card 2 Image">
-          <p>Welcome to my Portfolio! Here you can learn about myself and my recent works.</p>
+    <div class="row mt-5 justigy-content-center">
+      <div class="col-md-8">
+        <div class="card cardContainer text-center shadow-lg border-0">
+          <div class="cardBody">
+            <h2 class="cardTitle mb-4">Welcome to my Portfolio Website</h2>
+          </div>
+          <img 
+          src="/img/IntroPic2.jpg" 
+          class="card-img-top rounded-circle mx-auto d-block mb-3" alt="Introduction Picture"
+          style="max-width: 200px; border: 3px solid #f8f9fa;">
+          <p class="cardTextLead"> Explore my journey, achievements, and latest projects. Lets create something amazing together!</p>
+          <a href="#about" class="btn btn-primary mt-3 px-4 py-2">Learn more About me</a>
         </div>
       </div>
     </div>
+    <section id="about-me" class="py-5 bg-light">
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-md-6 text-center">
+            <img 
+              src="/img/introPic.jpg" 
+              alt="Profile Picture" 
+              class="rounded-circle mb-4 img-fluid" 
+              style="max-width: 200px; border: 3px solid #007bff;"
+            >
+          </div>
+          <div class="col-md-6">
+            <h2 class="mb-3">About Me</h2>
+            <p class="lead">
+              Hi, Im Dgenlord Leynes! Im a Bachelor of Science in Information Technology. 
+              With background on Hmtl, and Bootstrap elements. I aim to deliver 
+              projects that can is very fun to build. Feel free to explore my journey!
+            </p>
+            <a href="#projects" class="btn btn-primary px-5 py-2">
+              Next: View My Projects
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
     <div class="row mt-4">
       <div class="col">
         <div class="card cardContainer">
@@ -89,8 +167,8 @@
           <div class="row mt-4">
             <div class="col">
               <div class="card cardContainer">
-                <h2>About Me</h2>
-                <p>placeholder</p>
+                <h2>These are my Activities that i have been doing</h2>
+                <p>These websites are made with Bootstrap elements</p>
               </div>
             </div>
           </div>
