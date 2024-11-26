@@ -8,34 +8,111 @@
     <link rel="icon" type="image/x-icon" href="https://i.imgur.com/raE8eQy.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <style>
-            body {
-                background-color: black;
-            }
+    <style>
+        body {
+            background-color: wheat;
+        }
 
-            .vidContainer {
-                height: 100vh;
-                width: 100%;
-                overflow: hidden;
-                position: relative;
-            }
+        .vidContainer {
+            padding: 30px;
+            padding-bottom: 30px;
+        }
 
-            .video {
-                width: 4000px;
-                height: 100%;
-                pointer-events: none;
-                margin-left: 50%;
-                transform: translate(-50%);
-            }
-        </style>
+        .video {
+            color: #343a40;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .embed-responsive {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .embed-responsive-item {
+            width: 100%;
+            height: 250px;
+        }
+
+        .videoDescription {
+            color: black;
+            font-size: 18px;
+        }
+    </style>
 </head>
 
 <body>
     <div class="vidContainer">
-        <iframe width="1280" height="720" src="https://www.youtube.com/embed/UgnvIn4uWko"
-            title="Game Theory: FNAF, The Missing Key Is... Phone Guy?!" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div class="video">
+            <h2>Featured Videos</h2>
+
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item"
+                            src="https://www.youtube.com/embed/UgnvIn4uWko?si=jbb9D3qx8BYGXFyj&rel=0&controls=0"
+                            title="Game Theory: FNAF, The Missing Key Is... Phone Guy?!" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3>Game Theory: FNAF, The Missing Key Is... Phone Guy?!</h3>
+                    <p class="videoDescription card">
+                        FNAF 1 has haunted Five Nights at Freddy’s theorists for YEARS! Placing this game in the
+                        timeline helps a lot of other pieces fall into place, but we’ve just never been able to do it…
+                        until today! The newest FNAF book “The Week Before” just dropped and with it came a heaping
+                        handful of LORE! Does it give us enough to solve this mystery, i actually think it does! And the
+                        answer involves an old familiar friend…
+                    </p>
+                </div>
+            </div>
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ils93QDRYSc?si=jbb9D3qx8BYGXFyj&rel=0&controls=0"
+                            title="Version 2.7 Trailer — &quot;A New Venture on the Eighth Dawn&quot; | Honkai: Star Rail"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3>Version 2.7 Trailer — &quot;A New Venture on the Eighth Dawn&quot; | Honkai: Star Rail</h3>
+                    <p class="videoDescription card">
+                        Embark on an unforgettable journey with the latest Honkai Star Rail trailer, "A New Venture on
+                        the Eighth Dawn." This thrilling trailer offers a sneak peek into the breathtaking worlds and
+                        epic battles awaiting players in the Honkai universe. Witness stunning visuals as new
+                        characters, powerful abilities, and mysterious realms unfold. The trailer showcases high-stakes
+                        encounters and intricate storylines, all set to captivating music that heightens the excitement.
+                        Prepare to dive into an adventure full of discovery, danger, and wonder on the path of the
+                        Eighth Dawn. Join the Star Rail and let your epic journey begin!
+                    </p>
+                </div>
+            </div>
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6">
+                    <iframe class="embed-responsive-item"
+                        src="https://www.youtube.com/embed/E2Rj2gQAyPA?si=jbb9D3qx8BYGXFyj&rel=0&controls=0"
+                        title="Twenty One Pilots - “The Line” (from Arcane Season 2) [Official Music Video]"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6">
+                    <h3>Twenty One Pilots - “The Line” (from Arcane Season 2) [Official Music Video]</h3>
+                    <p class="videoDescription card">
+                        Watch the official music video for "The Line" by Twenty One Pilots, a powerful track from the
+                        second season of Arcane, the popular animated series inspired by League of Legends. This video
+                        blends the band’s signature sound with the unique visual style of Arcane, bringing the intense
+                        emotions and storylines of the show to life. "The Line" explores themes of conflict, resilience,
+                        and self-discovery, mirroring the struggles of beloved characters from the series. Fans of both
+                        Twenty One Pilots and Arcane will love this stunning collaboration that connects music and
+                        animation in a powerful way.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
